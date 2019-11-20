@@ -1,0 +1,22 @@
+<!-- Example 1 for Binding -->
+
+<!-- <textarea rows="6" [value]="newPost" #postInput></textarea>
+<hr>
+<button (click)="onAddPost(postInput)">Submit</button>
+<p>{{newPost}}</p> -->
+
+<mat-card>
+    <form (submit)=onAddPost(postForm) #postForm="ngForm">
+        <mat-form-field>
+            <input type="text" matInput name="title" ngModel required #title="ngModel">
+            <mat-error *ngIf="title.invalid">Please Enter a Post Title</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput rows="6" name="content" ngModel required #content="ngModel"></textarea>
+            <mat-error *ngIf="content.invalid">Please Enter a Post Content</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" >Post</button>
+    </form>
+</mat-card>
+
+<!-- <p>{{newPost}}</p> -->
